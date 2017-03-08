@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lanqiao.dao.ManagerDao">
+  	<!-- 管理员登录查询 -->
+	<select id="managerLogin" resultType="manager">
+		select * from manager where mname = #{MName} and mpassword =
+		#{MPassword}
+	</select>
+	<!-- 管理员密码修改 -->
+	<update id="updateManagerPwd" >
+		update manager set mpassword = #{MPassword} where mid= #{MID}
+	</update>
+</mapper>

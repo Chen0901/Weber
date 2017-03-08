@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lanqiao.dao.ViewDao">
+	<resultMap type="userView" id="UserViewMap">
+	    <result property="RUName" column="runame" />
+		<result property="VId" column="vid" />
+		<result property="RUId" column="ruid" />
+		<result property="IId" column="iid" />
+		<result property="VContent" column="vcontent" />
+		<result property="VTime" column="vtime" />
+	</resultMap>
+	<!-- 添加评论 -->
+	<insert id="addView">
+		insert into userview(ruid,iid,vcontent,vtime)
+		values(#{RUId},#{IId},#{VContent},#{VTime})
+	</insert>
+	<!-- 查询评论 -->
+	<select id="selectViewById" parameterType="int" resultType="userView">
+		select * from (select r.runame,v.* from userview v,registeruser r
+		where v.ruid=r.ruid
+		and v.iid = #{IId}) order by vtime desc
+	</select>
+	<!-- 删除评论 -->
+	<delete id="deleteView" parameterType="int">
+	    delete from userview where vid = #{VId}
+	</delete>
+</mapper>

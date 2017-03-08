@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lanqiao.dao.KindDao">
+    <resultMap type="kind" id="KindMap">
+        <id property="KId" column="kid"/>
+        <result property="KName" column="kname"/>
+    </resultMap>
+  	<!-- 获取全部类别 -->
+	<select id="selectAllKind" resultMap="KindMap">
+		select * from kind order by kid
+	</select>
+	<!-- 删除指定类别 -->
+	<delete id="deleteKind">
+	    delete from kind where kid = #{KId}
+	</delete>
+	<!-- 管理员查询指定类别 -->
+	<select id="searchKind" resultMap="KindMap">
+	    select * from kind
+	    <where>
+	        <if test="KName!=null">
+	            kname like '%${KName}%'
+	        </if>
+	        <if test="KId!=0">
+	            kid = #{KId}
+	        </if>
+	    </where>
+	    order by kid
+	</select>
+	<!-- 添加类别 -->
+	<insert id="addKind">
+	    insert into kind(kname) values(#{KName})
+	</insert>
+	<!-- 修改类别 -->
+	<update id="updateKind">
+	    update kind set kname = #{KName} where kid = #{KId}
+	</update>
+</mapper>

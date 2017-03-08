@@ -1,0 +1,302 @@
+@CHARSET "UTF-8";
+
+.publish {
+	border-radius: 5px;
+	background-color: #ffffff;
+	width: 75%;
+	height: 200px;
+}
+
+.form_img {
+	width: 75%;
+	height: 32px;
+	margin-bottom: 2%;
+}
+
+.add_ico {
+	margin-left: 2%;
+	width: 32px;
+	height: 32px;
+	float: left;
+}
+
+.add_pic {
+	width: 90%;
+	height: 32px;
+	margin-left: 1%;
+	margin-top: 8px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	float: left;
+}
+
+.info_lab {
+	color: #ff6600;
+}
+
+.add_file {
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+
+.area {
+	margin-left: 2%;
+	width: 95%;
+	height: 100px;
+	border-color: #cccccc;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+
+.lab {
+	margin-top: 2%;
+	margin-left: 2%;
+	width: 95%;
+	height: 32px;
+}
+
+.lab_ico {
+	margin-top: 3px;
+	width: 32px;
+	height: 32px;
+	float: left;
+}
+
+.lab_content {
+	font-size: 16px;
+	font-family: "微软雅黑";
+	float: left;
+}
+
+.publish_btn {
+	font-size: 16px;
+	font-family: "微软雅黑";
+	float: left;
+}
+
+.btn {
+	border-radius: 5px;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	background-color: rgba(255, 87, 34, 0.5);
+	font-size: 14px;
+	color: #ffffff;
+	font-family: "微软雅黑";
+}
+
+.record {
+	margin-top: 10px;
+	padding-top: 30px;
+	padding-bottom: 5px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	width: 75%;
+}
+
+.record_title {
+	margin-left: 5%;
+	width: 90%;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+
+.record_date {
+	margin-left: 5%;
+	width: 90%;
+	font-size: 16px;
+	color: #999999;
+	font-family: "微软雅黑";
+}
+
+.record_pic {
+	margin-top: 5px;
+	margin-left: 5%;
+	width: 90%;
+}
+
+.record_content {
+	margin-left: 5%;
+	padding-top: 5px;
+	width: 90%;
+	font-size: 16px;
+	color: #232323;
+	font-family: "微软雅黑";
+}
+
+.record_response {
+	margin-top: 5px;
+	margin-left: 60%;
+	width: 36%;
+	height: 24px;
+	text-align: center;
+	border-top: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+	border-style: solid;
+	border-left-width: 1px;
+	border-color: #a9b7b7;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+
+.record_num {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	width: 75%;
+	font-size: 16px;
+	text-align: center;
+	color: #232323;
+	font-family: "微软雅黑";
+	height: 32px;
+}
+
+.follower_info {
+	margin-top: 10px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	width: 75%;
+}
+
+.follower_name {
+	margin-left: 5%;
+	width: 100%;
+	font-size: 20px;
+	font-family: "微软雅黑";
+}
+
+.follower_introduce {
+	margin-top: 10px;
+	margin-left: 5%;
+	width: 100%;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+
+.follower_follow {
+	margin-top: 10px;
+	margin-left: 5%;
+	width: 100%;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+
+.follower_follow a:link {
+	color: #ababab;
+	text-decoration: none;
+	font-weight: bold
+}
+
+.follower_follow a:visited {
+	color: #ababab;
+	font-weight: bold
+}
+
+.follower_follow a:hover {
+	color: #ff6600;
+	font-weight: bold
+}
+
+.follower_follow a:active {
+	color: #ff6600;
+	font-weight: bold
+}
+
+.information {
+	margin-top: 10px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	width: 75%;
+}
+
+.information_name {
+	margin-left: 5%;
+	width: 100%;
+	font-size: 20px;
+	font-family: "微软雅黑";
+}
+
+.information_sex {
+	margin-left: 5%;
+	width: 100%;
+	font-size: 20px;
+	font-family: "微软雅黑";
+}
+
+.information_introduce {
+	margin-left: 5%;
+	width: 100%;
+	font-size: 20px;
+	font-family: "微软雅黑";
+}
+
+.introduce_area {
+	width: 90%;
+	height: 100px;
+	border-color: #cccccc;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+
+.information_btn {
+	margin-left: 5%;
+	width: 20%;
+	font-size: 20px;
+	font-family: "微软雅黑";
+	float: left;
+}
+
+.error {
+	margin-left: 5%;
+	width: 50%;
+	font-size: 20px;
+	color: #ff6600;
+	font-family: "微软雅黑";
+	float: left;
+}
+
+a:link {
+	color: #686868;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #686868;
+	font-weight: bold
+}
+
+a:hover {
+	color: #ff6600;
+}
+
+a:active {
+	color: #ff6600;
+}
+
+.record_title a:link {
+	color: #232323;
+	text-decoration: none;
+	font-weight: bold
+}
+
+.record_title a:visited {
+	color: #232323;
+	font-weight: bold
+}
+
+.record_title a:hover {
+	color: #ff6600;
+	font-weight: bold
+}
+
+.record_title a:active {
+	color: #ff6600;
+	font-weight: bold
+}

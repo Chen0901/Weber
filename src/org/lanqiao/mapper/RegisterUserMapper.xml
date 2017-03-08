@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lanqiao.dao.RegisterUserDao">
+	<resultMap type="registerUser" id="RegisterUserMap">
+		<id property="RUId" column="ruid" />
+		<result property="RUName" column="runame" />
+		<result property="RUPassWord" column="rupassword" />
+		<result property="RUSex" column="rusex" />
+		<result property="RUIntroduction" column="ruintroduction" />
+		<result property="RULevel" column="rulevel" />
+		<result property="RUPic" column="rupic" />
+	</resultMap>
+	<!-- 获取全部用户 -->
+	<select id="selectAllRegisterUser" resultMap="RegisterUserMap">
+		select
+		ruid,runame,rusex from registeruser
+	</select>
+	<!-- 删除指定用户 -->
+	<delete id="deleteRegisterUser">
+		delete from registeruser where ruid = #{RUId}
+	</delete>
+	<!-- 管理员查询指定用户 -->
+	<select id="searchRegisterUser" resultMap="RegisterUserMap">
+		select ruid,runame,rusex from registeruser
+		<where>
+			<if test="RUName!=null">
+				or runame like '%${RUName}%'
+			</if>
+			<if test="RUId!=0">
+				ruid = #{RUId}
+			</if>
+		</where>
+	</select>
+
+	<!-- 获取单个用户 -->
+	<select id="selectOneRegisterUser" resultType="registerUser">
+		select * from
+		registeruser where ruid = #{RUId}
+	</select>
+	<!-- 修改用户信息 -->
+	<update id="updatePersonalInformation" parameterType="registerUser">
+		update
+		registeruser set rusex = #{RUSex},ruintroduction = #{RUIntroduction}
+		where ruid = #{RUId}
+	</update>
+	<!-- 修改用户登录密码 -->
+	<update id="updatePassword">
+		update registeruser set rupassword = #{RUPassWord}
+		where ruid = #{RUId}
+	</update>
+	<!-- 添加注册用户 -->
+	<insert id="addRegisterUser" parameterType="registerUser">
+		insert into
+		RegisterUser(RUName,RUPassWord) values(#{RUName},#{RUPassWord})
+	</insert>
+	<!-- 注册查看是否存在用户 -->
+	<select id="selectRegisterUserByRUName" resultMap="RegisterUserMap">
+		select RUId
+		from RegisterUser where RUName =#{RUName,jdbcType=VARCHAR}
+	</select>
+	<!-- 登录检测 -->
+	<select id="loginRegisterUser" resultType="registerUser">
+		select * from
+		RegisterUser where runame=#{RUName} and
+		rupassword=#{RUPassWord}
+	</select>
+
+	<!-- 获取用户的关注人 -->
+	<select id="selectAllFollow" parameterType="int" resultMap="RegisterUserMap">
+		select * from registeruser where ruid in
+		(select euid from follow where
+		ruid = #{RUId}) order by ruid
+	</select>
+
+	<!-- 获取用户的粉丝 -->
+	<select id="selectMyFans" parameterType="int" resultMap="RegisterUserMap">
+		select *
+		from registeruser where ruid in
+		(select ruid from follow where euid =
+		#{RUId}) order by ruid
+	</select>
+
+</mapper>

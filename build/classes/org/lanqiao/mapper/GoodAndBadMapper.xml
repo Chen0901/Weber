@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lanqiao.dao.GoodAndBadDao">
+	<resultMap type="goodAndBad" id="GoodAndBadMap">
+		<result property="RUId" column="ruid" />
+		<result property="IId" column="iid" />
+	</resultMap>
+	<!-- 查询是否点过赞或踩 -->
+	<select id="selectGBInfoById" resultType="goodAndBad">
+		select * from goodandbad where ruid=#{RUId} and iid = #{IId}
+	</select>
+	<!-- 添加用户踩或赞的信息 -->
+	<insert id="addGBInfo">
+	    insert into goodandbad values(#{RUId},#{IId})
+	</insert>
+</mapper>

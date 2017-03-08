@@ -1,0 +1,141 @@
+.record{
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    border-radius:5px;
+    background-color: #ffffff;
+    width: 75%;
+}
+.record_title{
+    margin-left: 5%;
+    width: 90%;
+    font-size: 16px;
+    font-family: "微软雅黑";
+}
+.record_date{
+    margin-left: 5%;
+    width: 90%;
+    font-size: 16px;
+    color: #999999;
+    font-family: "微软雅黑";
+}
+.record_pic{
+    margin-top: 5px;
+    margin-left: 5%;
+    width: 90%;
+}
+.record_content{
+    margin-left: 5%;
+    padding-top: 5px;
+    width: 90%;
+    font-size: 16px;
+    color: #232323;
+    font-family: "微软雅黑";
+}
+
+.comment{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius:5px;
+    background-color: #ffffff;
+    width: 75%;
+    height: 28px;
+}
+
+.comment_content{
+    margin-left: 5%;
+    width: 75%;
+    float: left;
+}
+
+.content{
+    width: 100%;
+    height: 24px;
+    font-size: 14px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+    color: #232323;
+    font-family: "微软雅黑";
+}
+
+.comment_btn{
+    width: 10%;
+    margin-left: 5%;
+    float: left;
+}
+
+.btn{
+    width: 100%;
+    height: 24px;
+    border-radius:5px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: rgba(255,87,34,0.5);
+    font-size: 16px;
+    color: #ffffff;
+    font-family: "微软雅黑";
+}
+
+.comment_info{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: #ababab;
+    background-color: #fafafa;
+    width: 75%;
+}
+
+.commenter{
+    margin-left: 5%;
+    width: 90%;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+.comment_date{
+    margin-left: 5%;
+    margin-top: 5px;
+    width: 90%;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+.comment_delete{
+    margin-left: 5%;
+    margin-top: 5px;
+    width: 90%;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    text-align: right;
+}
+
+.record_num{
+    margin-top: 10px;
+    padding-top: 10px;
+    border-radius:5px;
+    background-color: #ffffff;
+    width: 75%;
+    font-size: 16px;
+    text-align: center;
+    color: #232323;
+    font-family: "微软雅黑";
+    height: 32px;
+}
+
+a:link {color:#ababab;text-decoration: none;}
+a:visited {color:#ababab;}
+a:hover {color: #ff6600;}
+a:active {color:#ff6600;}
+.commenter a:link {color:#ff6600;text-decoration: none;}
+.commenter a:visited {color:#ff6600;}
+.commenter a:hover {color: #ff6600;}
+.commenter a:active {color:#ff6600;}

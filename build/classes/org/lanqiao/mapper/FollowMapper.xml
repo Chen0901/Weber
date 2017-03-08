@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lanqiao.dao.FollowDao">
+    <resultMap type="follow" id="FollowMap">
+        <id property="RUId" column="ruid"/>
+        <result property="EUId" column="euid"/>
+    </resultMap>
+    <!-- 关注 -->
+    <insert id="addFollowUser" parameterType="int">
+    	insert into follow(RUId, EUId) values(#{0},#{1})
+    </insert>
+	<!-- 取关 -->
+	<delete id="deleteFollowUser">
+	    delete from follow where euid = #{EUId}
+	</delete>
+	<!-- 获取用户与某人的关注信息 -->
+	<select id="selectFollowById" resultType="follow">
+	    select * from follow where ruid=#{RUId} and euid=#{EUId} 
+	</select>
+</mapper>

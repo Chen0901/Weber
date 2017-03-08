@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lanqiao.dao.InformationDao">
+	<resultMap type="information" id="InformationMap">
+		<result property="RUName" column="runame" />
+		<result property="IId" column="iid" />
+		<result property="RUId" column="ruid" />
+		<result property="KId" column="kid" />
+		<result property="IContent" column="icontent" />
+		<result property="good" column="good" />
+		<result property="bad" column="bad" />
+		<result property="ITime" column="itime" />
+		<result property="IPicpath" column="ipicpath" />
+	</resultMap>
+
+	<!-- 发布信息 -->
+	<insert id="addpublishInformation">
+		insert into
+		information(ruid,kid,icontent,itime,ipicpath)
+		values(#{RUId},#{KId},#{IContent},#{ITime},#{IPicpath})
+	</insert>
+
+	<!-- 根据用户ID获取发布的信息,此处IId已被RUId代替 -->
+	<select id="selectInfoById" resultMap="InformationMap">
+		select * from
+		(select
+		r.runame,i.* from information i,registeruser r where i.ruid =
+		r.ruid )
+		where ruid = #{IId} order by itime desc
+	</select>
+
+	<!-- 删除指定信息 -->
+	<delete id="deleteInfo">
+		delete from Information where IID=#{IId}
+	</delete>
+
+	<!-- 搜索信息 -->
+	<select id="searchInfo" resultMap="InformationMap">
+		select iid,icontent from information
+		<where>
+			<if test="IContent!=null">
+				icontent like '%${IContent}%'
+			</if>
+			<if test="IId!=0">
+				or iid = #{IId}
+			</if>
+		</where>
+		order by iid
+	</select>
+
+	<!-- 获取全部发布信息 -->
+	<select id="selectAllInfo" resultMap="InformationMap">
+		select iid,icontent from
+		information order by iid
+	</select>
+
+	<!-- 获取用户首页的微博,此处IId已被RUId代替 -->
+	<select id="selectInfoForRegister" resultMap="InformationMap">
+		select * from
+		(select r.runame,i.* from information i,registeruser r where i.ruid =
+		r.ruid ) where ruid = #{IId}
+		or ruid in (select euid from follow where
+		ruid = #{IId}) order by itime desc
+	</select>
+
+	<!-- 获取用户个人的微博,此处IId已被RUId代替 -->
+	<select id="selectInfoForSelf" resultMap="InformationMap">
+		select * from
+		(select
+		r.runame,i.* from information i,registeruser r where i.ruid =
+		r.ruid )
+		where ruid = #{IId}
+		order by itime desc
+	</select>
+
+	<!-- 获取全部微博展示给游客 -->
+	<select id="selectInfoForUser" resultMap="InformationMap">
+		select r.runame,i.*
+		from information i,registeruser r
+		where i.ruid = r.ruid order by
+		i.itime desc
+	</select>
+
+	<!-- 通过类别获取微博展示给用户或游客,此处IId已被KId代替 -->
+	<select id="selectInfoByKind" resultMap="InformationMap">
+		select r.runame,i.* from
+		information i,registeruser r
+		where i.ruid = r.ruid and i.kid = #{IId}
+		order by i.itime desc
+	</select>
+
+	<!-- 通过类搜索获取微博展示给用户或游客 -->
+	<select id="searchInfoForUser" resultMap="InformationMap">
+		select * from (select r.runame,i.* from information i,registeruser r
+		where i.ruid = r.ruid)
+		<where>
+			<if test="IContent!=null">
+				icontent like '%${IContent}%'
+			</if>
+			<if test="RUName!=null">
+				or runame like '%${RUName}%'
+			</if>
+		</where>
+		order by itime desc
+	</select>
+
+	<update id="addGood">
+		update information set good=good+1 where IId=#{IId}
+	</update>
+
+	<update id="addBad">
+		update information set bad=bad+1 where IId=#{IId}
+	</update>
+
+	<select id="selectInfoByCollect" parameterType="int" resultMap="InformationMap">
+		select * from (select
+		r.runame,i.* from information i,registeruser r
+		where i.ruid = r.ruid)
+		where iid in(select iid from collection where
+		ruid=#{RUId})
+		order by itime desc
+	</select>
+
+	<select id="selectOneInfoById" resultType="information">
+		select r.runame,i.* from information i,registeruser r
+		where i.ruid =
+		r.ruid and i.iid=#{IId}
+	</select>
+
+</mapper>

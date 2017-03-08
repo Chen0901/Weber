@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lanqiao.dao.CollectionInfoDao">
+	<resultMap type="collectionInfo" id="CollectionInfoMap">
+		<id property="UId" column="ruid" />
+		<result property="IId" column="iid" />
+	</resultMap>
+	<!-- 收藏 -->
+	<insert id="addCollectionInformation" parameterType="int">
+		insert into
+		collection(RUId,IId) values(#{0},#{1})
+	</insert>
+	<!-- 取消收藏 -->
+	<delete id="deleteCollectionInformation">
+		delete from collection where IId = #{IId} and ruid = #{UId}
+	</delete>
+	<!-- 通过用户Id和信息Id查询收藏信息 -->
+	<select id="selectCollectionInfoById" resultType="collectionInfo">
+		select * from
+		collection where ruid = #{UId} and iid=#{IId}
+	</select>
+</mapper>
